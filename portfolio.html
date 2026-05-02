@@ -1,0 +1,277 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riyaz Ahamed | Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+
+<style>
+html{scroll-behavior:smooth;}
+
+:root{
+  --bg:#0f172a;
+  --text:#fff;
+  --card:rgba(255,255,255,0.08);
+  --accent:#38bdf8;
+}
+
+body.light{
+  --bg:#fff;
+  --text:#111;
+  --card:#f1f5f9;
+}
+
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
+
+body{background:var(--bg);color:var(--text);transition:.3s;}
+
+#particles-js{
+  position:fixed;width:100%;height:100%;z-index:-1;
+}
+
+/* CURSOR */
+.cursor{
+  width:20px;height:20px;border:2px solid var(--accent);
+  border-radius:50%;position:fixed;pointer-events:none;
+  transform:translate(-50%,-50%);z-index:9999;
+}
+
+/* HEADER */
+header{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:15px 30px;position:fixed;width:100%;
+  background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);
+  z-index:1000;
+}
+
+nav a{margin:0 10px;color:var(--text);text-decoration:none;}
+nav a:hover{color:var(--accent);}
+
+/* HERO */
+.hero{
+  height:100vh;display:flex;align-items:center;
+  padding:0 30px;margin-top:60px;
+}
+
+.typing{color:var(--accent);}
+
+/* BUTTON */
+.btn{
+  background:var(--accent);
+  padding:10px 20px;border-radius:6px;
+  color:#000;text-decoration:none;
+  display:inline-block;margin-top:10px;
+  transition:.3s;
+}
+.btn:hover{transform:scale(1.05);}
+
+/* SECTIONS */
+section{padding:80px 30px;transition:.3s;}
+section:hover{transform:scale(1.01);}
+
+/* GRID */
+.grid{display:grid;gap:20px;}
+.skills{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
+.projects{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
+
+/* CARD */
+.card{
+  backdrop-filter:blur(12px);
+  background:var(--card);
+  padding:20px;border-radius:15px;
+  transition:.3s;cursor:pointer;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 0 20px var(--accent);
+}
+
+/* IMAGE */
+.project-img{overflow:hidden;border-radius:10px;}
+.project-img img{
+  width:100%;height:180px;object-fit:cover;transition:.4s;
+}
+.project-img:hover img{transform:scale(1.1);}
+
+/* MODAL */
+.modal{
+  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(0,0,0,0.8);justify-content:center;align-items:center;
+}
+.modal-content{
+  background:#fff;color:#000;padding:20px;border-radius:10px;
+  width:90%;max-width:500px;
+}
+.close{float:right;font-size:20px;cursor:pointer;}
+
+/* FOOTER */
+footer{text-align:center;padding:20px;}
+</style>
+</head>
+
+<body>
+
+<div id="particles-js"></div>
+<div class="cursor"></div>
+
+<header>
+  <h2>Riyaz Ahamed</h2>
+  <nav>
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#internship">Internship</a>
+    <a href="#projects">Projects</a>
+    <a href="#certifications">Certifications</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <button onclick="toggleTheme()">🌙</button>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div>
+    <h1>Hi, I'm Riyaz Ahamed</h1>
+    <h2 class="typing"></h2>
+    <a href="#projects" class="btn">View Projects</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" data-aos="fade-up">
+<h2>About Me</h2>
+<p>I am a motivated BCA graduate with a strong foundation in web development and programming. I specialize in building responsive and user-friendly websites using HTML, CSS, and JavaScript, along with working knowledge of Python and database management systems like MySQL and MongoDB.
+I have gained practical experience through real-world projects and internships, where I worked on developing web applications, improving performance, and collaborating using Git and GitHub. I am particularly interested in front-end development and creating modern, visually appealing digital experiences.
+In addition, I have completed certifications in web development, Python (IBM), and data analytics through the Naan Mudhalvan initiative, which strengthened my technical and analytical skills.
+I am eager to begin my career in the IT industry, contribute to innovative projects, and continuously enhance my skills while growing as a developer.</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+<h2 data-aos="fade-up">Skills</h2>
+<div class="grid skills">
+<div class="card">HTML</div>
+<div class="card">CSS</div>
+<div class="card">JavaScript</div>
+<div class="card">Python</div>
+<div class="card">MySQL</div>
+</div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship">
+<h2>Internship</h2>
+<div class="card">
+<h3>Oneyes InfoTech Solutions</h3>
+<p>During my internship at Oneyes InfoTech Solutions, I worked as a Web Design and UI/UX Intern, focusing on creating modern, user-friendly interfaces. I used Figma to design wireframes, prototypes, and high-fidelity UI layouts, ensuring a clean and intuitive user experience.
+I translated design concepts into responsive web pages using HTML, CSS, and JavaScript, maintaining consistency between design and development. I also improved usability by refining layouts, navigation flow, and visual hierarchy.
+Additionally, I collaborated with the team using Git and GitHub for version control and gained hands-on experience in real-world UI/UX workflows, from design to implementation.</p>
+</div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
+
+<div class="grid projects">
+
+<div class="card" onclick="openModal()">
+<div class="project-img">
+<img src="ems-screenshot.png">
+</div>
+<h3>Employment Management System</h3>
+<p>Employment Management System (EMS) – UI/UX Design (Figma)
+The Employment Management System (EMS) UI/UX project was designed using Figma to create a modern, user-friendly interface for managing employee data and HR operations. The goal of this project was to simplify complex workflows like employee management, attendance tracking, and data access through an intuitive and visually appealing design.
+I created wireframes, user flows, and high-fidelity prototypes in Figma, focusing on clean layout structure, consistency, and usability. The design includes key screens such as dashboard, employee profile, attendance management, and admin controls.
+
+Special attention was given to:
+
+User-centered design principles
+Clear navigation and information hierarchy
+Responsive and accessible layout design
+Consistent color system and typography
+
+This project demonstrates my ability to design real-world applications, improve user experience, and transform ideas into structured, interactive UI designs.</p>
+</div>
+
+</div>
+</section>
+
+<!-- MODAL -->
+<div id="modal" class="modal">
+<div class="modal-content">
+<span class="close" onclick="closeModal()">&times;</span>
+<h2>Employment Management System</h2>
+<p>Designed an Employment Management System (EMS) UI/UX in Figma, including wireframes, user flows, and prototypes. Focused on usability, responsive design, and clean interface for efficient employee management.</p>
+</div>
+</div>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+<h2>Certifications</h2>
+<ul>
+<li>Web Designing Certification</li>
+<li>IBM Python Chatbot</li>
+<li>Naan Mudhalvan - Data Analytics</li>
+</ul>
+</section>
+
+<!-- RESUME -->
+<section id="resume">
+<h2>Resume</h2>
+<a href="resume.pdf" download class="btn">Download Resume</a>
+<br><br>
+<iframe src="resume.pdf" width="100%" height="500px"></iframe>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+<h2>Contact</h2>
+<p>Email: riyazahamedbca2023@gmail.com</p>
+</section>
+
+<footer>
+<p>© 2026 Riyaz Ahamed</p>
+</footer>
+
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+AOS.init();
+
+// cursor
+const cursor=document.querySelector(".cursor");
+document.addEventListener("mousemove",e=>{
+cursor.style.left=e.clientX+"px";
+cursor.style.top=e.clientY+"px";
+});
+
+// modal
+function openModal(){document.getElementById("modal").style.display="flex";}
+function closeModal(){document.getElementById("modal").style.display="none";}
+
+// typing
+const roles=["Frontend Developer","Python Developer","Open to Work"];
+let i=0,j=0,del=false;
+function type(){
+let t=roles[i];
+document.querySelector(".typing").textContent=t.substring(0,j);
+if(!del&&j<t.length)j++; else if(del&&j>0)j--;
+else{del=!del;if(!del)i=(i+1)%roles.length;}
+setTimeout(type,del?50:100);
+}
+type();
+
+// theme
+function toggleTheme(){document.body.classList.toggle("light");}
+
+// particles
+particlesJS("particles-js",{particles:{number:{value:60},size:{value:3},move:{speed:1}}});
+</script>
+
+</body>
+</html>
