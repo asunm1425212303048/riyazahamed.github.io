@@ -1,277 +1,494 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Riyaz Ahamed | Portfolio</title>
+<meta name="description" content="Riyaz Ahamed — BCA Graduate, UI/UX Designer and Aspiring Data Analyst">
+<title>Riyaz Ahamed — Creative Portfolio</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/particles.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
-html{scroll-behavior:smooth;}
-
 :root{
-  --bg:#0f172a;
-  --text:#fff;
-  --card:rgba(255,255,255,0.08);
-  --accent:#38bdf8;
+  --bg:#07080d;
+  --surface:#0d1018;
+  --surface2:#121621;
+  --text:#f5f7fb;
+  --muted:#8f98aa;
+  --line:rgba(255,255,255,.09);
+  --accent:#8b7cff;
+  --accent2:#43e7c4;
+  --white:#fff;
+  --radius:24px;
+  --shadow:0 25px 80px rgba(0,0,0,.35);
 }
-
-body.light{
-  --bg:#fff;
-  --text:#111;
-  --card:#f1f5f9;
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
 }
+a{color:inherit;text-decoration:none}
+button{font:inherit}
+::selection{background:var(--accent);color:#fff}
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
-
-body{background:var(--bg);color:var(--text);transition:.3s;}
-
-#particles-js{
-  position:fixed;width:100%;height:100%;z-index:-1;
+/* Background */
+.noise,.orb{position:fixed;pointer-events:none;z-index:-1}
+.noise{
+  inset:0;
+  opacity:.035;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.5'/%3E%3C/svg%3E");
 }
+.orb{border-radius:50%;filter:blur(80px);opacity:.22}
+.orb.one{width:420px;height:420px;background:#6d5cff;top:-180px;right:-120px}
+.orb.two{width:360px;height:360px;background:#1bd9b1;left:-180px;top:55%;opacity:.12}
 
-/* CURSOR */
-.cursor{
-  width:20px;height:20px;border:2px solid var(--accent);
-  border-radius:50%;position:fixed;pointer-events:none;
-  transform:translate(-50%,-50%);z-index:9999;
+/* Nav */
+nav{
+  position:fixed;top:0;left:0;width:100%;z-index:100;
+  padding:20px 6%;
+  display:flex;align-items:center;justify-content:space-between;
+  transition:.35s;
 }
-
-/* HEADER */
-header{
-  display:flex;justify-content:space-between;align-items:center;
-  padding:15px 30px;position:fixed;width:100%;
-  background:rgba(0,0,0,0.5);backdrop-filter:blur(10px);
-  z-index:1000;
+nav.scrolled{
+  background:rgba(7,8,13,.78);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--line);
 }
+.logo{font-family:"Space Grotesk";font-size:20px;font-weight:700;letter-spacing:-1px}
+.logo span{color:var(--accent)}
+.nav-links{display:flex;gap:30px;color:#b8bfcc;font-size:14px}
+.nav-links a{transition:.25s}
+.nav-links a:hover{color:#fff}
+.menu{display:none;background:none;border:0;color:#fff;font-size:25px}
 
-nav a{margin:0 10px;color:var(--text);text-decoration:none;}
-nav a:hover{color:var(--accent);}
-
-/* HERO */
-.hero{
-  height:100vh;display:flex;align-items:center;
-  padding:0 30px;margin-top:60px;
+/* Layout */
+section{padding:120px 7%;position:relative}
+.container{max-width:1180px;margin:auto}
+.eyebrow{
+  color:var(--accent2);font-size:12px;font-weight:700;
+  letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;
 }
+.section-title{
+  font-family:"Space Grotesk";font-size:clamp(40px,6vw,72px);
+  letter-spacing:-3px;line-height:.98;max-width:760px;
+}
+.section-copy{color:var(--muted);max-width:600px;line-height:1.8;margin-top:22px}
 
-.typing{color:var(--accent);}
-
-/* BUTTON */
+/* Hero */
+.hero{min-height:100vh;padding-top:150px;display:flex;align-items:center}
+.hero-grid{
+  display:grid;grid-template-columns:1.15fr .85fr;gap:60px;align-items:center;
+}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  border:1px solid var(--line);padding:9px 13px;border-radius:100px;
+  color:#c8ced9;font-size:12px;background:rgba(255,255,255,.025);
+  margin-bottom:25px;
+}
+.kicker i{width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 15px var(--accent2)}
+.hero h1{
+  font-family:"Space Grotesk";font-size:clamp(58px,8.8vw,128px);
+  line-height:.82;letter-spacing:-7px;
+}
+.hero h1 .gradient{
+  background:linear-gradient(100deg,#fff 5%,#a99fff 45%,#62efd2 95%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero-desc{max-width:600px;color:#a1a9b8;font-size:17px;line-height:1.8;margin:30px 0}
+.actions{display:flex;gap:12px;flex-wrap:wrap}
 .btn{
-  background:var(--accent);
-  padding:10px 20px;border-radius:6px;
-  color:#000;text-decoration:none;
-  display:inline-block;margin-top:10px;
-  transition:.3s;
+  padding:14px 20px;border-radius:13px;border:1px solid var(--line);
+  font-weight:700;font-size:14px;transition:.3s;display:inline-flex;align-items:center;gap:9px;
 }
-.btn:hover{transform:scale(1.05);}
+.btn.primary{background:#fff;color:#08090e;border-color:#fff}
+.btn:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,.25)}
+.btn.secondary{background:rgba(255,255,255,.03)}
 
-/* SECTIONS */
-section{padding:80px 30px;transition:.3s;}
-section:hover{transform:scale(1.01);}
-
-/* GRID */
-.grid{display:grid;gap:20px;}
-.skills{grid-template-columns:repeat(auto-fit,minmax(150px,1fr));}
-.projects{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));}
-
-/* CARD */
-.card{
-  backdrop-filter:blur(12px);
-  background:var(--card);
-  padding:20px;border-radius:15px;
-  transition:.3s;cursor:pointer;
+.hero-card{
+  min-height:470px;border:1px solid var(--line);border-radius:34px;
+  background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.015));
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+  transform:rotate(2deg);transition:.5s;
 }
-.card:hover{
-  transform:translateY(-8px);
-  box-shadow:0 0 20px var(--accent);
+.hero-card:hover{transform:rotate(0) translateY(-8px)}
+.card-grid{
+  position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);
+  background-size:45px 45px;
+  mask-image:linear-gradient(to bottom,#000,transparent);
 }
+.avatar{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-58%);
+  width:180px;height:180px;border-radius:50%;
+  background:linear-gradient(135deg,#8b7cff,#43e7c4);
+  display:grid;place-items:center;
+  font-family:"Space Grotesk";font-size:60px;font-weight:700;color:#08090e;
+  box-shadow:0 0 100px rgba(139,124,255,.28);
+}
+.float-tag{
+  position:absolute;padding:11px 14px;border-radius:12px;
+  background:rgba(10,12,19,.82);border:1px solid var(--line);
+  backdrop-filter:blur(15px);font-size:12px;color:#d8dde7;
+  animation:float 4s ease-in-out infinite;
+}
+.tag1{top:55px;left:25px}.tag2{top:130px;right:20px;animation-delay:1s}.tag3{bottom:75px;left:30px;animation-delay:2s}.tag4{bottom:35px;right:30px;animation-delay:1.5s}
+@keyframes float{50%{transform:translateY(-10px)}}
 
-/* IMAGE */
-.project-img{overflow:hidden;border-radius:10px;}
-.project-img img{
-  width:100%;height:180px;object-fit:cover;transition:.4s;
+/* Marquee */
+.marquee{
+  overflow:hidden;border-block:1px solid var(--line);
+  padding:20px 0;background:rgba(255,255,255,.015)
 }
-.project-img:hover img{transform:scale(1.1);}
+.track{display:flex;width:max-content;animation:marquee 24s linear infinite}
+.track span{
+  font-family:"Space Grotesk";font-size:18px;font-weight:600;
+  color:#777f91;white-space:nowrap;padding-right:45px;
+}
+.track b{color:var(--accent2);margin-right:45px}
+@keyframes marquee{to{transform:translateX(-50%)}}
 
-/* MODAL */
-.modal{
-  display:none;position:fixed;top:0;left:0;width:100%;height:100%;
-  background:rgba(0,0,0,0.8);justify-content:center;align-items:center;
+/* About */
+.about-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:80px}
+.about-number{
+  font-family:"Space Grotesk";font-size:150px;line-height:.7;
+  color:rgba(255,255,255,.055);font-weight:700;
 }
-.modal-content{
-  background:#fff;color:#000;padding:20px;border-radius:10px;
-  width:90%;max-width:500px;
-}
-.close{float:right;font-size:20px;cursor:pointer;}
+.about-text p{color:#a6adbb;line-height:1.9;margin-bottom:20px}
+.stat-row{display:flex;gap:35px;margin-top:35px;flex-wrap:wrap}
+.stat strong{display:block;font-family:"Space Grotesk";font-size:30px}
+.stat span{font-size:12px;color:var(--muted)}
 
-/* FOOTER */
-footer{text-align:center;padding:20px;}
+/* Skills */
+.skills-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:45px}
+.skill{
+  min-height:150px;padding:20px;border:1px solid var(--line);border-radius:18px;
+  background:rgba(255,255,255,.025);transition:.35s;display:flex;flex-direction:column;justify-content:space-between;
+}
+.skill:hover{transform:translateY(-8px);background:rgba(139,124,255,.08);border-color:rgba(139,124,255,.4)}
+.skill-num{font-size:11px;color:#626b7d}
+.skill h3{font-family:"Space Grotesk";font-size:20px}
+
+/* Projects */
+.project{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;margin-top:75px}
+.project:nth-child(even){direction:rtl}
+.project:nth-child(even)>*{direction:ltr}
+.project-visual{
+  min-height:410px;border:1px solid var(--line);border-radius:28px;
+  overflow:hidden;position:relative;background:#0b0e15;
+}
+.browser{position:absolute;inset:18px;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#111520}
+.browser-top{height:35px;border-bottom:1px solid var(--line);display:flex;align-items:center;gap:6px;padding:0 12px}
+.dot{width:7px;height:7px;border-radius:50%;background:#525b6d}
+.mock-ui{display:grid;grid-template-columns:85px 1fr;height:calc(100% - 35px)}
+.side{border-right:1px solid var(--line);padding:18px 10px}
+.side i{display:block;height:8px;border-radius:5px;background:#252b39;margin-bottom:15px}
+.main-ui{padding:20px}
+.ui-title{height:15px;width:42%;background:#e8ebf2;border-radius:5px;margin-bottom:18px;opacity:.85}
+.ui-row{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.ui-box{height:70px;border-radius:10px;background:#1e2533;border:1px solid #2c3444}
+.ui-chart{height:125px;border-radius:12px;background:linear-gradient(135deg,#171e2b,#252d3d);margin-top:12px;position:relative;overflow:hidden}
+.ui-chart:after{content:"";position:absolute;left:8%;right:8%;bottom:22%;height:2px;background:linear-gradient(90deg,#8b7cff,#43e7c4);transform:rotate(-7deg);box-shadow:70px -25px 0 #8b7cff,140px 5px 0 #43e7c4}
+.project-info .eyebrow{margin-bottom:10px}
+.project-info h3{font-family:"Space Grotesk";font-size:42px;letter-spacing:-2px}
+.project-info p{color:var(--muted);line-height:1.8;margin:18px 0 25px}
+.project-tags{display:flex;gap:8px;flex-wrap:wrap}
+.project-tags span{font-size:11px;padding:7px 10px;border:1px solid var(--line);border-radius:100px;color:#adb5c4}
+
+/* Experience */
+.timeline{margin-top:55px;border-left:1px solid var(--line);padding-left:35px}
+.timeline-item{position:relative;padding-bottom:55px}
+.timeline-item:before{
+  content:"";position:absolute;width:9px;height:9px;border-radius:50%;
+  background:var(--accent);left:-40px;top:5px;box-shadow:0 0 20px var(--accent);
+}
+.timeline-date{font-size:12px;color:var(--accent2);letter-spacing:1px}
+.timeline h3{font-family:"Space Grotesk";font-size:27px;margin:9px 0}
+.timeline p{color:var(--muted);line-height:1.8;max-width:750px}
+
+/* Contact */
+.contact{
+  text-align:center;border:1px solid var(--line);border-radius:35px;
+  padding:80px 30px;background:radial-gradient(circle at 50% 0,rgba(139,124,255,.14),transparent 55%),rgba(255,255,255,.02);
+}
+.contact h2{font-family:"Space Grotesk";font-size:clamp(42px,7vw,78px);letter-spacing:-4px}
+.contact p{color:var(--muted);margin:18px auto 30px;max-width:560px;line-height:1.8}
+.email{display:inline-block;color:#fff;border-bottom:1px solid #555;padding-bottom:4px;margin-bottom:30px}
+
+/* Footer */
+footer{padding:40px 7%;border-top:1px solid var(--line);color:#687184;font-size:12px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+footer strong{color:#c7ccd6}
+
+/* Reveal */
+.reveal{opacity:0;transform:translateY(35px);transition:opacity .8s ease,transform .8s ease}
+.reveal.show{opacity:1;transform:none}
+
+/* Mobile */
+@media(max-width:900px){
+  .nav-links{display:none;position:absolute;top:75px;left:5%;right:5%;padding:20px;flex-direction:column;background:#0d1018;border:1px solid var(--line);border-radius:18px}
+  .nav-links.open{display:flex}.menu{display:block}
+  .hero-grid,.about-grid,.project{grid-template-columns:1fr}
+  .hero-card{min-height:390px}
+  .skills-grid{grid-template-columns:repeat(2,1fr)}
+  .project:nth-child(even){direction:ltr}
+  section{padding:90px 6%}
+}
+@media(max-width:520px){
+  .hero h1{letter-spacing:-4px;font-size:57px}
+  .skills-grid{grid-template-columns:1fr 1fr}
+  .skill{min-height:125px}
+  .project-visual{min-height:300px}
+  .about-number{font-size:100px}
+  .contact{padding:60px 20px}
+}
 </style>
 </head>
 
 <body>
+<div class="noise"></div>
+<div class="orb one"></div>
+<div class="orb two"></div>
 
-<div id="particles-js"></div>
-<div class="cursor"></div>
-
-<header>
-  <h2>Riyaz Ahamed</h2>
-  <nav>
+<nav id="nav">
+  <a href="#home" class="logo">RA<span>.</span></a>
+  <div class="nav-links" id="navLinks">
     <a href="#about">About</a>
     <a href="#skills">Skills</a>
-    <a href="#internship">Internship</a>
-    <a href="#projects">Projects</a>
-    <a href="#certifications">Certifications</a>
-    <a href="#resume">Resume</a>
+    <a href="#work">Work</a>
+    <a href="#experience">Journey</a>
     <a href="#contact">Contact</a>
-  </nav>
-  <button onclick="toggleTheme()">🌙</button>
-</header>
+  </div>
+  <button class="menu" id="menu" aria-label="Open menu">☰</button>
+</nav>
 
-<!-- HERO -->
-<section class="hero">
-  <div>
-    <h1>Hi, I'm Riyaz Ahamed</h1>
-    <h2 class="typing"></h2>
-    <a href="#projects" class="btn">View Projects</a>
+<main>
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div class="reveal">
+      <div class="kicker"><i></i> Available for opportunities</div>
+      <h1>RIYAZ<br><span class="gradient">AHAMED.</span></h1>
+      <p class="hero-desc">
+        BCA graduate blending <strong>UI/UX thinking</strong>, web fundamentals and
+        <strong>data analytics</strong> to create useful digital experiences.
+      </p>
+      <div class="actions">
+        <a class="btn primary" href="#work">Explore my work ↗</a>
+        <a class="btn secondary" href="finalresume.pdf" download>Download resume ↓</a>
+      </div>
+    </div>
+
+    <div class="hero-card reveal">
+      <div class="card-grid"></div>
+      <div class="avatar">RA</div>
+      <div class="float-tag tag1">Figma / UI UX</div>
+      <div class="float-tag tag2">BCA Graduate</div>
+      <div class="float-tag tag3">Data Analytics</div>
+      <div class="float-tag tag4">Python • Power BI</div>
+    </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about" data-aos="fade-up">
-<h2>About Me</h2>
-<p>I am a motivated BCA graduate with a strong foundation in web development and programming. I specialize in building responsive and user-friendly websites using HTML, CSS, and JavaScript, along with working knowledge of Python and database management systems like MySQL and MongoDB.
-I have gained practical experience through real-world projects and internships, where I worked on developing web applications, improving performance, and collaborating using Git and GitHub. I am particularly interested in front-end development and creating modern, visually appealing digital experiences.
-In addition, I have completed certifications in web development, Python (IBM), and data analytics through the Naan Mudhalvan initiative, which strengthened my technical and analytical skills.
-I am eager to begin my career in the IT industry, contribute to innovative projects, and continuously enhance my skills while growing as a developer.</p>
+<div class="marquee">
+  <div class="track">
+    <span>UI/UX DESIGN</span><b>✦</b><span>DATA ANALYTICS</span><b>✦</b>
+    <span>WEB DESIGN</span><b>✦</b><span>PYTHON</span><b>✦</b>
+    <span>POWER BI</span><b>✦</b><span>UI/UX DESIGN</span><b>✦</b>
+    <span>DATA ANALYTICS</span><b>✦</b><span>WEB DESIGN</span><b>✦</b>
+  </div>
+</div>
+
+<section id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="reveal"><div class="about-number">01</div></div>
+      <div class="about-text reveal">
+        <div class="eyebrow">About me</div>
+        <h2 class="section-title">Curious by nature. <br>Creative by choice.</h2>
+        <p>
+          I'm Riyaz Ahamed, a BCA graduate who enjoys turning ideas into clean,
+          practical digital experiences. My interests sit between design,
+          technology and data.
+        </p>
+        <p>
+          I completed a UI/UX internship where I worked with Figma and designed
+          an Employment Management System prototype. Alongside design, I've been
+          building my foundation in Python, Excel, MySQL and Power BI for data analytics.
+        </p>
+        <div class="stat-row">
+          <div class="stat"><strong>BCA</strong><span>Graduate</span></div>
+          <div class="stat"><strong>Figma</strong><span>UI/UX workflow</span></div>
+          <div class="stat"><strong>Power BI</strong><span>Analytics</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
-<h2 data-aos="fade-up">Skills</h2>
-<div class="grid skills">
-<div class="card">HTML</div>
-<div class="card">CSS</div>
-<div class="card">JavaScript</div>
-<div class="card">Python</div>
-<div class="card">MySQL</div>
-</div>
+  <div class="container">
+    <div class="eyebrow reveal">Capabilities</div>
+    <h2 class="section-title reveal">Tools I use to turn ideas into things.</h2>
+    <div class="skills-grid">
+      <div class="skill reveal"><span class="skill-num">01</span><h3>UI / UX</h3></div>
+      <div class="skill reveal"><span class="skill-num">02</span><h3>Figma</h3></div>
+      <div class="skill reveal"><span class="skill-num">03</span><h3>HTML / CSS</h3></div>
+      <div class="skill reveal"><span class="skill-num">04</span><h3>Python</h3></div>
+      <div class="skill reveal"><span class="skill-num">05</span><h3>Data Analytics</h3></div>
+      <div class="skill reveal"><span class="skill-num">06</span><h3>Power BI</h3></div>
+      <div class="skill reveal"><span class="skill-num">07</span><h3>MySQL</h3></div>
+      <div class="skill reveal"><span class="skill-num">08</span><h3>Excel</h3></div>
+      <div class="skill reveal"><span class="skill-num">09</span><h3>Java</h3></div>
+      <div class="skill reveal"><span class="skill-num">10</span><h3>C++</h3></div>
+    </div>
+  </div>
 </section>
 
-<!-- INTERNSHIP -->
-<section id="internship">
-<h2>Internship</h2>
-<div class="card">
-<h3>Oneyes InfoTech Solutions</h3>
-<p>During my internship at Oneyes InfoTech Solutions, I worked as a Web Design and UI/UX Intern, focusing on creating modern, user-friendly interfaces. I used Figma to design wireframes, prototypes, and high-fidelity UI layouts, ensuring a clean and intuitive user experience.
-I translated design concepts into responsive web pages using HTML, CSS, and JavaScript, maintaining consistency between design and development. I also improved usability by refining layouts, navigation flow, and visual hierarchy.
-Additionally, I collaborated with the team using Git and GitHub for version control and gained hands-on experience in real-world UI/UX workflows, from design to implementation.</p>
-</div>
+<section id="work">
+  <div class="container">
+    <div class="eyebrow reveal">Selected work</div>
+    <h2 class="section-title reveal">A few things I've built & designed.</h2>
+
+    <article class="project">
+      <div class="project-visual reveal">
+        <div class="browser">
+          <div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="mock-ui">
+            <div class="side"><i></i><i></i><i></i><i></i><i></i></div>
+            <div class="main-ui">
+              <div class="ui-title"></div>
+              <div class="ui-row"><div class="ui-box"></div><div class="ui-box"></div><div class="ui-box"></div></div>
+              <div class="ui-chart"></div>
+              <div class="ui-row" style="margin-top:12px"><div class="ui-box"></div><div class="ui-box"></div><div class="ui-box"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info reveal">
+        <div class="eyebrow">01 / UI UX CASE STUDY</div>
+        <h3>Employment Management System</h3>
+        <p>
+          A Figma-based UI/UX concept designed to make employee information,
+          leave management, statistics and settings easier to navigate.
+        </p>
+        <div class="project-tags">
+          <span>Figma</span><span>Wireframes</span><span>Prototype</span><span>UI Design</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-visual reveal">
+        <div class="browser">
+          <div class="browser-top"><i class="dot"></i><i class="dot"></i><i class="dot"></i></div>
+          <div class="mock-ui">
+            <div class="side"><i></i><i></i><i></i><i></i></div>
+            <div class="main-ui">
+              <div class="ui-title" style="width:55%"></div>
+              <div class="ui-chart" style="height:155px"></div>
+              <div class="ui-row" style="margin-top:12px"><div class="ui-box"></div><div class="ui-box"></div><div class="ui-box"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="project-info reveal">
+        <div class="eyebrow">02 / DATA ANALYTICS</div>
+        <h3>Student Academic Analysis</h3>
+        <p>
+          A data analytics project focused on predicting student academic
+          outcomes using performance datasets, with cleaning, analysis and
+          visualization across Excel, MySQL, Jupyter and Power BI.
+        </p>
+        <div class="project-tags">
+          <span>Excel</span><span>MySQL</span><span>Python</span><span>Power BI</span><span>Jupyter</span>
+        </div>
+      </div>
+    </article>
+  </div>
 </section>
 
-<!-- PROJECTS -->
-<section id="projects">
-<h2>Projects</h2>
-
-<div class="grid projects">
-
-<div class="card" onclick="openModal()">
-<div class="project-img">
-<img src="capture.img">
-</div>
-<h3>Employment Management System</h3>
-<p>Employment Management System (EMS) – UI/UX Design (Figma)
-The Employment Management System (EMS) UI/UX project was designed using Figma to create a modern, user-friendly interface for managing employee data and HR operations. The goal of this project was to simplify complex workflows like employee management, attendance tracking, and data access through an intuitive and visually appealing design.
-I created wireframes, user flows, and high-fidelity prototypes in Figma, focusing on clean layout structure, consistency, and usability. The design includes key screens such as dashboard, employee profile, attendance management, and admin controls.
-
-Special attention was given to:
-
-User-centered design principles
-Clear navigation and information hierarchy
-Responsive and accessible layout design
-Consistent color system and typography
-
-This project demonstrates my ability to design real-world applications, improve user experience, and transform ideas into structured, interactive UI designs.</p>
-</div>
-
-</div>
+<section id="experience">
+  <div class="container">
+    <div class="eyebrow reveal">My journey</div>
+    <h2 class="section-title reveal">Learning, building, improving.</h2>
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <div class="timeline-date">EDUCATION</div>
+        <h3>Bachelor of Computer Applications</h3>
+        <p>Kumararani Meena Muthaiah College of Arts and Science. Built a foundation across programming, web technologies and computer applications.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">INTERNSHIP</div>
+        <h3>UI/UX Design Intern — Oneyes InfoTech Solutions</h3>
+        <p>Worked with Figma, basic design tools, wireframing and prototyping while designing the Employment Management System concept.</p>
+      </div>
+      <div class="timeline-item reveal">
+        <div class="timeline-date">CURRENT FOCUS</div>
+        <h3>UI/UX + Data Analytics</h3>
+        <p>Developing a practical portfolio while strengthening Python, Excel, MySQL and Power BI skills for entry-level technology opportunities.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- MODAL -->
-<div id="modal" class="modal">
-<div class="modal-content">
-<span class="close" onclick="closeModal()">&times;</span>
-<h2>Employment Management System</h2>
-<p>Designed an Employment Management System (EMS) UI/UX in Figma, including wireframes, user flows, and prototypes. Focused on usability, responsive design, and clean interface for efficient employee management.</p>
-</div>
-</div>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-<h2>Certifications</h2>
-<ul>
-<li>Web Designing Certification</li>
-<li>IBM Python Chatbot</li>
-<li>Naan Mudhalvan - Data Analytics</li>
-</ul>
-</section>
-
-<!-- RESUME -->
-<section id="resume">
-<h2>Resume</h2>
-<a href="finalresume.pdf" download class="btn">Download Resume</a>
-<br><br>
-<iframe src="finalresume.pdf" width="100%" height="500px"></iframe>
-</section>
-
-<!-- CONTACT -->
 <section id="contact">
-<h2>Contact</h2>
-<p>Email: riyazahamedbca2023@gmail.com</p>
+  <div class="container">
+    <div class="contact reveal">
+      <div class="eyebrow">Let's connect</div>
+      <h2>Have an idea?<br>Let's talk.</h2>
+      <p>I'm open to entry-level opportunities, internships, collaborations and interesting projects.</p>
+      <a class="email" href="mailto:riyazahamedbca2023@gmail.com">riyazahamedbca2023@gmail.com</a>
+      <div class="actions" style="justify-content:center">
+        <a class="btn primary" href="mailto:riyazahamedbca2023@gmail.com">Send me an email ↗</a>
+        <a class="btn secondary" href="#" id="linkedin">LinkedIn ↗</a>
+        <a class="btn secondary" href="#" id="github">GitHub ↗</a>
+      </div>
+    </div>
+  </div>
 </section>
+</main>
 
 <footer>
-<p>© 2026 Riyaz Ahamed</p>
+  <span>© 2026 <strong>Riyaz Ahamed</strong></span>
+  <span>Designed & built with curiosity ✦</span>
 </footer>
 
-<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
 <script>
-AOS.init();
+const nav = document.getElementById("nav");
+const menu = document.getElementById("menu");
+const navLinks = document.getElementById("navLinks");
 
-// cursor
-const cursor=document.querySelector(".cursor");
-document.addEventListener("mousemove",e=>{
-cursor.style.left=e.clientX+"px";
-cursor.style.top=e.clientY+"px";
+window.addEventListener("scroll", () => {
+  nav.classList.toggle("scrolled", window.scrollY > 30);
 });
 
-// modal
-function openModal(){document.getElementById("modal").style.display="flex";}
-function closeModal(){document.getElementById("modal").style.display="none";}
+menu.addEventListener("click", () => navLinks.classList.toggle("open"));
+document.querySelectorAll(".nav-links a").forEach(a =>
+  a.addEventListener("click", () => navLinks.classList.remove("open"))
+);
 
-// typing
-const roles=["Open to Work"];
-let i=0,j=0,del=false;
-function type(){
-let t=roles[i];
-document.querySelector(".typing").textContent=t.substring(0,j);
-if(!del&&j<t.length)j++; else if(del&&j>0)j--;
-else{del=!del;if(!del)i=(i+1)%roles.length;}
-setTimeout(type,del?50:100);
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if(entry.isIntersecting) entry.target.classList.add("show");
+  });
+},{threshold:.12});
+
+document.querySelectorAll(".reveal").forEach(el => observer.observe(el));
+
+// Tiny tilt interaction for the hero card
+const card = document.querySelector(".hero-card");
+if (window.matchMedia("(pointer:fine)").matches) {
+  card.addEventListener("mousemove", e => {
+    const r = card.getBoundingClientRect();
+    const x = (e.clientX-r.left)/r.width-.5;
+    const y = (e.clientY-r.top)/r.height-.5;
+    card.style.transform = `rotateY(${x*8}deg) rotateX(${-y*8}deg)`;
+  });
+  card.addEventListener("mouseleave", () => card.style.transform = "rotate(2deg)");
 }
-type();
-
-// theme
-function toggleTheme(){document.body.classList.toggle("light");}
-
-// particles
-particlesJS("particles-js",{particles:{number:{value:60},size:{value:3},move:{speed:1}}});
 </script>
-
 </body>
 </html>
